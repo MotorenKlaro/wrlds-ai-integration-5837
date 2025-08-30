@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw, MessageSquare } from "lucide-react";
+import { Car, DollarSign, Gauge, Fuel, ArrowRight, Search, Filter, BarChart, CheckCircle, Star, Shield, MessageSquare, RefreshCcw, Rocket } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -23,27 +23,27 @@ const Features = () => {
 
   const features = [
     {
-      icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-      title: "Sports Performance",
-      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
+      icon: <Search className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Advanced Search",
+      description: "Find your perfect car with intelligent filters for make, model, price range, fuel type, and more.",
       image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
     },
     {
-      icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-      title: "Military & Defense",
-      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
+      icon: <BarChart className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Side-by-Side Comparison",
+      description: "Compare multiple cars with detailed specifications, pricing, fuel economy, and safety ratings.",
       image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
     },
     {
-      icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-      title: "Industrial Safety",
-      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
+      icon: <DollarSign className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Price Analysis",
+      description: "Get comprehensive pricing information including MSRP, dealer pricing, and market value trends.",
       image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
     },
     {
-      icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-      title: "Thermal Regulation",
-      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
+      icon: <Star className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Expert Reviews",
+      description: "Access professional reviews, safety ratings, and real owner experiences to make informed decisions.",
       image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
     }
   ];
@@ -108,44 +108,44 @@ const Features = () => {
     };
   }, []);
 
-  const sensorCaseStudies = [{
+  const carCaseStudies = [{
     image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
-    title: "Firefighter Safety",
-    description: "Advanced protective gear with gas, temperature, positioning, and motion sensors for safer emergency response."
+    title: "Family SUVs",
+    description: "Compare spacious SUVs with safety ratings, fuel economy, and family-friendly features for your growing family."
   }, {
     image: "/lovable-uploads/5463c9c5-0946-4280-a14b-17636ff69a98.png",
-    title: "Industrial Worker Protection",
-    description: "Safety workwear with vibration, pressure, and heating sensors to prevent injuries and monitor environmental hazards."
+    title: "Luxury Sedans",
+    description: "Explore premium sedans with performance specs, luxury features, and advanced technology comparisons."
   }, {
     image: "/lovable-uploads/c5f8ee24-9815-4ebe-b65d-6f3d449feb8b.png",
-    title: "Sports Performance",
-    description: "Smart athletic wear with temperature and pressure sensors that track hydration, foot strike patterns, and performance metrics."
+    title: "Electric Vehicles",
+    description: "Compare electric cars with range, charging capabilities, and environmental impact data."
   }];
   const stepFlowItems = [{
-    icon: <Microchip className="h-10 w-10 text-gray-700" />,
-    title: "WRLDS Proprietary Modules",
-    description: "Our core technology components developed in-house"
+    icon: <Search className="h-10 w-10 text-gray-700" />,
+    title: "Smart Search Engine",
+    description: "Advanced algorithms to find cars matching your criteria"
   }, {
-    icon: <Factory className="h-10 w-10 text-gray-700" />,
-    title: "Vetted Off-the-Shelf Hardware",
-    description: "Carefully selected components that complement our technology"
+    icon: <BarChart className="h-10 w-10 text-gray-700" />,
+    title: "Comprehensive Database",
+    description: "Detailed specifications and pricing for thousands of vehicles"
   }, {
-    icon: <Handshake className="h-10 w-10 text-gray-700" />,
-    title: "Vetted Production Partners",
-    description: "Expert manufacturing partners for quality and reliability"
+    icon: <Shield className="h-10 w-10 text-gray-700" />,
+    title: "Trusted Reviews",
+    description: "Expert ratings and real owner feedback for informed decisions"
   }];
-  const sprintPhases = [{
-    name: "Planning",
+  const comparisonPhases = [{
+    name: "Search",
+    icon: <Search className="h-4 w-4" />
+  }, {
+    name: "Filter",
+    icon: <Filter className="h-4 w-4" />
+  }, {
+    name: "Compare",
+    icon: <BarChart className="h-4 w-4" />
+  }, {
+    name: "Decide",
     icon: <CheckCircle className="h-4 w-4" />
-  }, {
-    name: "Development",
-    icon: <Code className="h-4 w-4" />
-  }, {
-    name: "Testing",
-    icon: <Box className="h-4 w-4" />
-  }, {
-    name: "Review",
-    icon: <RefreshCcw className="h-4 w-4" />
   }];
 
   return <>
@@ -153,10 +153,10 @@ const Features = () => {
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
           <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
             <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              Textile Sensor Applications
+              Car Comparison Features
             </div>
             <p className="text-gray-600 mt-4">
-              Our textile sensor technology transforms ordinary fabrics into intelligent interfaces that collect data, monitor conditions, and enhance performance across diverse sectors.
+              Our comprehensive car comparison platform provides all the tools and information you need to find and compare your perfect vehicle.
             </p>
           </div>
           
@@ -278,20 +278,20 @@ const Features = () => {
           <div className="mt-16 mb-8 feature-item">
             <div className="text-center mb-8">
               <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                Textile Sensor Applications
+                Vehicle Categories
               </div>
-              <h3 className="text-2xl font-bold">Real-World Use Cases</h3>
+              <h3 className="text-2xl font-bold">Popular Car Types</h3>
               <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-                Explore how our textile sensors are applied in different professional contexts, 
-                from emergency response to construction and athletics.
-                <span className="block text-sm mt-1 text-blue-500">Scroll horizontally to see more examples →</span>
+                Explore different vehicle categories and find the perfect car type for your needs, 
+                from family SUVs to luxury sedans and eco-friendly electric vehicles.
+                <span className="block text-sm mt-1 text-blue-500">Scroll horizontally to see more categories →</span>
               </p>
             </div>
             
             <div className="rounded-xl overflow-hidden bg-white p-4 feature-item">
               <Carousel className="w-full max-w-7xl mx-auto">
                 <CarouselContent className="flex">
-                  {sensorCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0">
+                  {carCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0">
                       <Card className="border border-gray-100 shadow-md">
                         <CardContent className="p-0">
                           <div className="w-full h-full">
@@ -311,19 +311,19 @@ const Features = () => {
                 </div>
               </Carousel>
               <div className="text-center mt-6 text-sm text-gray-600">
-                <p className="font-medium">These examples showcase just a few ways our textile sensors can enhance safety and performance</p>
+                <p className="font-medium">These categories represent just a few of the vehicle types available for comparison</p>
               </div>
             </div>
           </div>
         </div>
         <div className="text-center mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <Button onClick={scrollToContact} className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto">
-            Need Custom Solutions?
+            Need Help Finding a Car?
             <MessageSquare className="ml-2 w-4 h-4 group-hover:animate-pulse" />
           </Button>
           
           <Button onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-4 sm:px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto">
-            Learn More About Our Technology
+            Browse All Cars
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -333,12 +333,12 @@ const Features = () => {
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              Our Approach
+              How It Works
             </div>
-            <h2 className="text-3xl font-bold mb-4">How our technology works</h2>
+            <h2 className="text-3xl font-bold mb-4">Smart Car Comparison Process</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              WRLDS builds hardware and software with proprietary and off-the-shelf modules, 
-              allowing us to develop completely unique solutions at high speed and lower risk.
+              Our platform combines comprehensive data, intelligent search, and expert insights 
+              to help you find and compare the perfect car for your needs and budget.
             </p>
           </div>
           
@@ -404,9 +404,9 @@ const Features = () => {
                 </div>
                 
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
-                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
+                  {comparisonPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / comparisonPhases.length * 100 && progressValue < (index + 1) / comparisonPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
-                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
+                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / comparisonPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
                         </div>
                         <span className="text-xs font-medium">{phase.name}</span>

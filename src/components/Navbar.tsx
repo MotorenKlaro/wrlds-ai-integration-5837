@@ -47,8 +47,8 @@ const Navbar = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
+            <Link to="/">
+              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="CarFinder Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
             </Link>
           </div>
           
@@ -74,38 +74,32 @@ const Navbar = () => {
                 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                    Customer Cases
+                    Car Categories
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[400px]">
                       <li>
-                        <Link to="/projects/firecat" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">FireCat 6th SENSE</div>
-                          <p className="text-sm text-gray-500">Smart textiles for firefighter safety</p>
+                        <Link to="/" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Sedans</div>
+                          <p className="text-sm text-gray-500">Compare luxury and economy sedans</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/sport-retail" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Sports Performance</div>
-                          <p className="text-sm text-gray-500">Advanced tracking for athletes</p>
+                        <Link to="/" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">SUVs</div>
+                          <p className="text-sm text-gray-500">Family-friendly SUVs and crossovers</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/workwear" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Workwear Climate Control</div>
-                          <p className="text-sm text-gray-500">Temperature regulation for extreme environments</p>
+                        <Link to="/" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Electric Vehicles</div>
+                          <p className="text-sm text-gray-500">Eco-friendly electric cars</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/hockey" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Ice Hockey Elite Tracker</div>
-                          <p className="text-sm text-gray-500">Performance tracking for ice hockey</p>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/projects/pet-tracker" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Pet Activity Counter</div>
-                          <p className="text-sm text-gray-500">Smart collars for pet activity monitoring</p>
+                        <Link to="/" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Trucks & Pickups</div>
+                          <p className="text-sm text-gray-500">Heavy-duty and light trucks</p>
                         </Link>
                       </li>
                     </ul>
@@ -114,24 +108,21 @@ const Navbar = () => {
                 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                    Learn More
+                    Tools & Guides
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[400px]">
                       <li>
-                        <Link to="/tech-details" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Technology Details</div>
-                          <p className="text-sm text-gray-500">How our smart textile platform works</p>
+                        <Link to="/about" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Car Buying Guide</div>
+                          <p className="text-sm text-gray-500">Tips and advice for buying your next car</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/development-process" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Development Process</div>
-                          <p className="text-sm text-gray-500">Our approach to creating custom solutions</p>
+                        <Link to="/about" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Comparison Tool</div>
+                          <p className="text-sm text-gray-500">Compare cars side-by-side</p>
                         </Link>
-                      </li>
-                      <li>
-                        
                       </li>
                     </ul>
                   </NavigationMenuContent>
@@ -140,7 +131,7 @@ const Navbar = () => {
                 <NavigationMenuItem>
                   <Link to="/blog">
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      News
+                      Car News
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -188,27 +179,27 @@ const Navbar = () => {
             About Us
           </Link>
           
-          {/* Simplified Customer Cases - no dropdown */}
-          <Link to="/projects/firecat" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+          {/* Simplified Car Categories - no dropdown */}
+          <Link to="/" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
-            Customer Cases
+            Car Categories
           </Link>
           
-          {/* Simplified Learn More - no dropdown */}
-          <Link to="/tech-details" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+          {/* Simplified Tools & Guides - no dropdown */}
+          <Link to="/about" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
-            Learn More
+            Tools & Guides
           </Link>
           
           <Link to="/blog" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
-            News
+            Car News
           </Link>
           
           <Link to="/careers" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {

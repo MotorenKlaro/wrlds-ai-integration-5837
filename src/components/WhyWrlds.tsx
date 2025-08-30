@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight, Award, Target, Shield, ChartBar } from "lucide-react";
+import { Car, BarChart, Users, Clock4, Rocket, Zap, Sparkles, ArrowRight, Award, Target, Shield, ChartBar } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -86,10 +86,10 @@ const WhyWrlds = () => {
         margin: "-100px"
       }} variants={containerVariants}>
           <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-            Why WRLDS?
+            Why Choose Our Platform?
           </motion.h2>
           <motion.p variants={itemVariants} className="text-gray-600 text-lg max-w-3xl mx-auto">
-            In an industry where complexity leads to failure, we bring simplicity and expertise to ensure your success
+            In a market flooded with options, we bring clarity and expertise to help you make the right car buying decision
           </motion.p>
         </motion.div>
         
@@ -99,23 +99,23 @@ const WhyWrlds = () => {
       }} variants={containerVariants}>
           <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
             <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
-              <BarChart className="w-8 h-8 text-gray-700" />
+              <Car className="w-8 h-8 text-gray-700" />
             </div>
             <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={3.8} decimals={1} suffix=" Billion" /> USD
+              <AnimatedCounter end={50000} suffix="+" /> 
             </h3>
-            <p className="text-gray-700">Market estimated to reach this value by 2030, with massive growth potential for smart textile solutions</p>
+            <p className="text-gray-700">Cars in our database with detailed specifications, pricing, and expert reviews</p>
           </motion.div>
           
           <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
             <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
-              <AlertTriangle className="w-8 h-8 text-gray-700" />
+              <Users className="w-8 h-8 text-gray-700" />
             </div>
             <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={60} suffix="%" /> 
+              <AnimatedCounter end={1000000} suffix="+" /> 
             </h3>
             <p className="text-gray-700">
-              of IoT projects stall at the proof-of-concept stage due to fragmented expertise and poor coordination
+              Happy customers who found their perfect car using our comparison platform
             </p>
           </motion.div>
           
@@ -124,10 +124,10 @@ const WhyWrlds = () => {
               <Clock4 className="w-8 h-8 text-gray-700" />
             </div>
             <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={80} suffix="%" />
+              <AnimatedCounter end={15} suffix=" min" />
             </h3>
             <p className="text-gray-700">
-              Increase in time-to-market for IoT products over the past four years, creating costly delays
+              Average time to find and compare the perfect car for your needs using our smart search
             </p>
           </motion.div>
         </motion.div>
@@ -138,10 +138,10 @@ const WhyWrlds = () => {
         }} variants={containerVariants}>
           <motion.div variants={itemVariants} className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              What WRLDS Does for You
+              What Our Platform Does for You
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We transform your ideas into market-ready solutions with tangible benefits for your business
+              We transform your car shopping experience with intelligent tools and comprehensive data
             </p>
           </motion.div>
           
@@ -152,8 +152,8 @@ const WhyWrlds = () => {
                   <BarChart className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">New Revenue Products</h4>
-                  <p className="text-gray-700">Create high-margin, sensor-enabled products for new revenue streams.</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Smart Comparisons</h4>
+                  <p className="text-gray-700">Compare cars side-by-side with detailed specs and pricing analysis.</p>
                 </div>
               </div>
             </motion.div>
@@ -164,8 +164,8 @@ const WhyWrlds = () => {
                   <Sparkles className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Innovation That Attracts</h4>
-                  <p className="text-gray-700">Break through to dream clients with tech that makes you stand out.</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Expert Insights</h4>
+                  <p className="text-gray-700">Access professional reviews and real owner experiences for informed decisions.</p>
                 </div>
               </div>
             </motion.div>
@@ -176,8 +176,8 @@ const WhyWrlds = () => {
                   <Zap className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Comfort-Zone Development</h4>
-                  <p className="text-gray-700">We develop frontier tech while you stay in your comfort zone.</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Time-Saving Search</h4>
+                  <p className="text-gray-700">Find your perfect car in minutes with our intelligent filtering system.</p>
                 </div>
               </div>
             </motion.div>
@@ -188,8 +188,8 @@ const WhyWrlds = () => {
                   <Rocket className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Brand-Building Leaps</h4>
-                  <p className="text-gray-700">We enable hardware/software leaps that define your brand's future.</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Best Deal Finder</h4>
+                  <p className="text-gray-700">Discover the best prices and deals from trusted dealers nationwide.</p>
                 </div>
               </div>
             </motion.div>
@@ -197,11 +197,11 @@ const WhyWrlds = () => {
           
           <motion.div variants={itemVariants} className="text-center mt-10">
             <Link 
-              to="/development-process" 
+              to="/about" 
               onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
             >
-              Learn more about our structured development process
+              Learn more about our car comparison platform
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
