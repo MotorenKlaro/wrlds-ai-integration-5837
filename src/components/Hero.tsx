@@ -104,6 +104,123 @@ const Hero = () => {
         </div>
       </div>
       
+      {/* Car Comparison Section */}
+      <div className="relative z-10 bg-white py-16 w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-block mb-3 px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
+              Compare Cars
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Compare Cars Side by Side
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Make informed decisions by comparing specifications, features, and pricing
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[1, 2, 3].map((slot) => (
+              <motion.div
+                key={slot}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: slot * 0.1 }}
+                className="bg-white border-2 border-dashed border-gray-200 rounded-lg p-8 text-center hover:border-gray-300 transition-colors"
+              >
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-8 h-8 text-gray-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-700 mb-2">Add Car {slot}</h3>
+                <p className="text-gray-500 text-sm mb-4">Select a car to compare</p>
+                <button className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors">
+                  Choose Car
+                </button>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <button className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+              Start Comparison
+              <ArrowRight className="w-4 h-4 ml-2 inline" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Cars Section */}
+      <div className="relative z-10 bg-gray-50 py-16 w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-block mb-3 px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
+              Featured Cars
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Find Your Perfect Car
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Browse our curated selection of vehicles with detailed specifications and pricing
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              { name: "Toyota Camry 2024", type: "Sedan", price: "$28,000", image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png" },
+              { name: "Honda CR-V 2024", type: "SUV", price: "$32,000", image: "/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" },
+              { name: "BMW 3 Series 2024", type: "Luxury", price: "$42,000", image: "/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png" }
+            ].map((car, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="h-48 bg-gray-100 overflow-hidden">
+                  <img 
+                    src={car.image} 
+                    alt={car.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-1">{car.name}</h3>
+                  <p className="text-gray-500 text-sm mb-3">{car.type}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-gray-900">{car.price}</span>
+                    <button className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors text-sm">
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <button className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+              View All Cars
+              <ArrowRight className="w-4 h-4 ml-2 inline" />
+            </button>
+          </div>
+        </div>
+      </div>
+      
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
         delay: 0.6
