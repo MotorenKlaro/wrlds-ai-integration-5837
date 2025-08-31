@@ -1,6 +1,7 @@
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
+import CarComparison from '@/components/CarComparison';
 import CarListings from '@/components/CarListings';
 import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
@@ -27,6 +28,7 @@ const Index = () => {
       />
       <Hero />
       <Features />
+      <CarComparison />
       <WhyWrlds />
       <CarListings />
       <BlogPreview />
