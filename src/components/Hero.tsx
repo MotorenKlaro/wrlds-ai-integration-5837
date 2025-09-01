@@ -133,16 +133,35 @@ const Hero = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: slot * 0.1 }}
-                className="bg-white border-2 border-dashed border-gray-200 rounded-lg p-8 text-center hover:border-gray-300 transition-colors"
+                className="group bg-white border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-primary/30 hover:bg-gray-50/50 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/10"
               >
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-gray-400" />
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
+                    <Car className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors duration-300" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Search className="w-4 h-4 text-primary" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-2">Add Car {slot}</h3>
-                <p className="text-gray-500 text-sm mb-4">Select a car to compare</p>
-                <button className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors">
-                  Choose Car
-                </button>
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                  Car Slot {slot}
+                </h3>
+                <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+                  Click to select a vehicle for detailed comparison analysis
+                </p>
+                <div className="space-y-3">
+                  <button className="w-full px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg hover:from-primary/90 hover:to-primary font-medium transition-all duration-300 transform group-hover:scale-105 shadow-md hover:shadow-lg">
+                    Browse Cars
+                  </button>
+                  <div className="flex items-center justify-center text-xs text-gray-400 space-x-2">
+                    <div className="flex space-x-1">
+                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                    </div>
+                    <span>Specs • Price • Reviews</span>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
