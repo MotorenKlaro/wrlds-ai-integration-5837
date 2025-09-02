@@ -145,8 +145,8 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button onClick={() => scrollToSection('contact')} className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-gray-700 text-white hover:bg-gray-600")}>
-                    Contact Us
+                  <button className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                    Sign Up
                   </button>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -209,8 +209,8 @@ const Navbar = () => {
             Careers
           </Link>
           
-          <button onClick={() => scrollToSection('contact')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 bg-gray-200 hover:bg-gray-300" : "text-white bg-gray-700 hover:bg-gray-600")}>
-            Contact Us
+          <button className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-primary-foreground bg-primary hover:bg-primary/90" : "text-primary-foreground bg-primary hover:bg-primary/90")}>
+            Sign Up
           </button>
         </div>
       </div>
