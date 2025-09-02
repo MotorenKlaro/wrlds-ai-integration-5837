@@ -26,8 +26,8 @@ const Index = () => {
         keywords={['car comparison', 'car finder', 'car specs', 'car prices', 'vehicle comparison', 'car reviews', 'auto shopping']}
       />
       <Hero />
-      <Features />
       <CarListings />
+      <Features />
       <WhyWrlds />
       <BlogPreview />
     </PageLayout>
