@@ -2,6 +2,8 @@ import { ArrowRight, Car, Search, BarChart, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -125,41 +127,79 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {[1, 2, 3].map((slot) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {["first", "second"].map((carPosition, index) => (
               <motion.div
-                key={slot}
+                key={carPosition}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: slot * 0.1 }}
-                className="group bg-white border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-primary/30 hover:bg-gray-50/50 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/10"
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
-                    <Car className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors duration-300" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Search className="w-4 h-4 text-primary" />
+                {/* Car Image Section */}
+                <div className="relative h-64 bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img 
+                      src="/lovable-uploads/e924102c-9517-4d20-bd15-43df76b22f58.png"
+                      alt={`${carPosition} car comparison`}
+                      className="w-4/5 h-auto max-h-48 object-contain filter brightness-110"
+                    />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-                  Car Slot {slot}
-                </h3>
-                <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Click to select a vehicle for detailed comparison analysis
-                </p>
-                <div className="space-y-3">
-                  <button className="w-full px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg hover:from-primary/90 hover:to-primary font-medium transition-all duration-300 transform group-hover:scale-105 shadow-md hover:shadow-lg">
-                    Browse Cars
-                  </button>
-                  <div className="flex items-center justify-center text-xs text-gray-400 space-x-2">
-                    <div className="flex space-x-1">
-                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-                      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                
+                {/* Car Selection Form */}
+                <div className="p-6 space-y-6">
+                  <h3 className="text-2xl font-bold text-foreground capitalize">
+                    Add {carPosition} car
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {/* Make Selection */}
+                    <div className="space-y-2">
+                      <Label htmlFor={`make-${carPosition}`} className="text-sm font-medium text-muted-foreground">
+                        Make
+                      </Label>
+                      <Select>
+                        <SelectTrigger className="w-full h-12 border-input bg-background">
+                          <SelectValue placeholder="Choose a make" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="toyota">Toyota</SelectItem>
+                          <SelectItem value="honda">Honda</SelectItem>
+                          <SelectItem value="ford">Ford</SelectItem>
+                          <SelectItem value="bmw">BMW</SelectItem>
+                          <SelectItem value="mercedes">Mercedes-Benz</SelectItem>
+                          <SelectItem value="audi">Audi</SelectItem>
+                          <SelectItem value="volkswagen">Volkswagen</SelectItem>
+                          <SelectItem value="nissan">Nissan</SelectItem>
+                          <SelectItem value="hyundai">Hyundai</SelectItem>
+                          <SelectItem value="kia">Kia</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
-                    <span>Specs • Price • Reviews</span>
+                    
+                    {/* Model Selection */}
+                    <div className="space-y-2">
+                      <Label htmlFor={`model-${carPosition}`} className="text-sm font-medium text-muted-foreground">
+                        Model
+                      </Label>
+                      <Select>
+                        <SelectTrigger className="w-full h-12 border-input bg-background">
+                          <SelectValue placeholder="Choose a model" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="camry">Camry</SelectItem>
+                          <SelectItem value="corolla">Corolla</SelectItem>
+                          <SelectItem value="accord">Accord</SelectItem>
+                          <SelectItem value="civic">Civic</SelectItem>
+                          <SelectItem value="f150">F-150</SelectItem>
+                          <SelectItem value="mustang">Mustang</SelectItem>
+                          <SelectItem value="3series">3 Series</SelectItem>
+                          <SelectItem value="x5">X5</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -167,10 +207,10 @@ const Hero = () => {
           </div>
 
           <div className="text-center">
-            <button className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
-              Start Comparison
-              <ArrowRight className="w-4 h-4 ml-2 inline" />
-            </button>
+            <Button className="px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 text-base">
+              Compare Selected Cars
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
         </div>
       </div>
