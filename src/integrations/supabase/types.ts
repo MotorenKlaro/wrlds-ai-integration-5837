@@ -16,78 +16,212 @@ export type Database = {
     Tables: {
       cars: {
         Row: {
+          abs_ebd_esc: boolean | null
+          adas_features: string[] | null
+          airbags: number | null
           body_type: string
+          boot_space_liters: number | null
+          brand: string
+          climate_control: string | null
+          connected_car_tech: string[] | null
           created_at: string
           dealer_contact: string | null
           dealer_name: string | null
           description: string | null
+          digital_cluster: boolean | null
           doors: number | null
+          driver_aids: string[] | null
+          engine_capacity_cc: number | null
+          engine_capacity_liters: number | null
           engine_size: number | null
           features: string[] | null
           fuel_economy_city: number | null
           fuel_economy_highway: number | null
           fuel_type: string
+          ground_clearance_mm: number | null
+          hill_assist: boolean | null
           horsepower: number | null
           id: string
           image_url: string | null
+          infotainment_system: string | null
           make: string
+          mileage_kmpl: number | null
+          mileage_range_km: number | null
           model: string
+          ncap_rating: number | null
+          power_bhp: number | null
+          power_kw: number | null
+          power_ps: number | null
           price: number
           safety_rating: number | null
+          seat_material: string | null
+          seating_capacity: number | null
           seats: number | null
+          service_cost_per_year: number | null
+          torque_nm: number | null
+          traction_control: boolean | null
           transmission: string
           updated_at: string
+          warranty_years: number | null
           year: number
         }
         Insert: {
+          abs_ebd_esc?: boolean | null
+          adas_features?: string[] | null
+          airbags?: number | null
           body_type: string
+          boot_space_liters?: number | null
+          brand?: string
+          climate_control?: string | null
+          connected_car_tech?: string[] | null
           created_at?: string
           dealer_contact?: string | null
           dealer_name?: string | null
           description?: string | null
+          digital_cluster?: boolean | null
           doors?: number | null
+          driver_aids?: string[] | null
+          engine_capacity_cc?: number | null
+          engine_capacity_liters?: number | null
           engine_size?: number | null
           features?: string[] | null
           fuel_economy_city?: number | null
           fuel_economy_highway?: number | null
           fuel_type: string
+          ground_clearance_mm?: number | null
+          hill_assist?: boolean | null
           horsepower?: number | null
           id?: string
           image_url?: string | null
+          infotainment_system?: string | null
           make: string
+          mileage_kmpl?: number | null
+          mileage_range_km?: number | null
           model: string
+          ncap_rating?: number | null
+          power_bhp?: number | null
+          power_kw?: number | null
+          power_ps?: number | null
           price: number
           safety_rating?: number | null
+          seat_material?: string | null
+          seating_capacity?: number | null
           seats?: number | null
+          service_cost_per_year?: number | null
+          torque_nm?: number | null
+          traction_control?: boolean | null
           transmission: string
           updated_at?: string
+          warranty_years?: number | null
           year: number
         }
         Update: {
+          abs_ebd_esc?: boolean | null
+          adas_features?: string[] | null
+          airbags?: number | null
           body_type?: string
+          boot_space_liters?: number | null
+          brand?: string
+          climate_control?: string | null
+          connected_car_tech?: string[] | null
           created_at?: string
           dealer_contact?: string | null
           dealer_name?: string | null
           description?: string | null
+          digital_cluster?: boolean | null
           doors?: number | null
+          driver_aids?: string[] | null
+          engine_capacity_cc?: number | null
+          engine_capacity_liters?: number | null
           engine_size?: number | null
           features?: string[] | null
           fuel_economy_city?: number | null
           fuel_economy_highway?: number | null
           fuel_type?: string
+          ground_clearance_mm?: number | null
+          hill_assist?: boolean | null
           horsepower?: number | null
           id?: string
           image_url?: string | null
+          infotainment_system?: string | null
           make?: string
+          mileage_kmpl?: number | null
+          mileage_range_km?: number | null
           model?: string
+          ncap_rating?: number | null
+          power_bhp?: number | null
+          power_kw?: number | null
+          power_ps?: number | null
           price?: number
           safety_rating?: number | null
+          seat_material?: string | null
+          seating_capacity?: number | null
           seats?: number | null
+          service_cost_per_year?: number | null
+          torque_nm?: number | null
+          traction_control?: boolean | null
           transmission?: string
           updated_at?: string
+          warranty_years?: number | null
           year?: number
         }
         Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_favorites: {
+        Row: {
+          car_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          car_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          car_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_favorites_car_id_fkey"
+            columns: ["car_id"]
+            isOneToOne: false
+            referencedRelation: "cars"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

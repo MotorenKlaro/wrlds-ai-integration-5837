@@ -5,10 +5,21 @@ import { Menu, X, ChevronDown, Search, Heart, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { AuthModal } from "@/components/auth/AuthModal";
+import { SearchModal } from "@/components/search/SearchModal";
+import { FavoritesModal } from "@/components/favorites/FavoritesModal";
+import { ProfileModal } from "@/components/profile/ProfileModal";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const [showFavoritesModal, setShowFavoritesModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,28 +148,42 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                  <button 
+                    onClick={() => setShowSearchModal(true)}
+                    className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}
+                  >
                     <Search size={20} />
                   </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                  <button 
+                    onClick={() => user ? setShowFavoritesModal(true) : setShowAuthModal(true)}
+                    className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}
+                  >
                     <Heart size={20} />
                   </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                  <button 
+                    onClick={() => user ? setShowProfileModal(true) : setShowAuthModal(true)}
+                    className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}
+                  >
                     <User size={20} />
                   </button>
                 </NavigationMenuItem>
                 
-                <NavigationMenuItem>
-                  <button className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    Sign Up
-                  </button>
-                </NavigationMenuItem>
+                {!user && (
+                  <NavigationMenuItem>
+                    <button 
+                      onClick={() => setShowAuthModal(true)}
+                      className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-primary text-primary-foreground hover:bg-primary/90")}
+                    >
+                      Sign Up
+                    </button>
+                  </NavigationMenuItem>
+                )}
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -213,22 +238,55 @@ const Navbar = () => {
           </Link>
           
           <div className="flex items-center gap-2 px-3 py-1.5">
-            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            <button 
+              onClick={() => setShowSearchModal(true)}
+              className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            >
               <Search size={18} />
             </button>
-            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            <button 
+              onClick={() => user ? setShowFavoritesModal(true) : setShowAuthModal(true)}
+              className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            >
               <Heart size={18} />
             </button>
-            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            <button 
+              onClick={() => user ? setShowProfileModal(true) : setShowAuthModal(true)}
+              className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            >
               <User size={18} />
             </button>
           </div>
           
-          <button className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-primary-foreground bg-primary hover:bg-primary/90" : "text-primary-foreground bg-primary hover:bg-primary/90")}>
-            Sign Up
-          </button>
+          {!user && (
+            <button 
+              onClick={() => setShowAuthModal(true)}
+              className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-primary-foreground bg-primary hover:bg-primary/90" : "text-primary-foreground bg-primary hover:bg-primary/90")}
+            >
+              Sign Up
+            </button>
+          )}
         </div>
       </div>
+      </nav>
+
+      {/* Modals */}
+      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+      <SearchModal isOpen={showSearchModal} onClose={() => setShowSearchModal(false)} />
+      <FavoritesModal 
+        isOpen={showFavoritesModal} 
+        onClose={() => setShowFavoritesModal(false)} 
+        user={user} 
+      />
+      <ProfileModal 
+        isOpen={showProfileModal} 
+        onClose={() => setShowProfileModal(false)} 
+        user={user}
+        onSignOut={() => {
+          setShowProfileModal(false);
+          setShowFavoritesModal(false);
+        }}
+      />
     </motion.nav>
   );
 };
