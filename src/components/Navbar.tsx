@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Heart, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/">
-              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="CarFinder Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
+              <img src="/lovable-uploads/7e30cb8f-2f48-454a-8a09-314729fa4523.png" alt="Motoren Klaro Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
             </Link>
           </div>
           
@@ -137,11 +137,21 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/careers">
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      Careers
-                    </NavigationMenuLink>
-                  </Link>
+                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                    <Search size={20} />
+                  </button>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                    <Heart size={20} />
+                  </button>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100" : "text-gray-100 hover:text-white hover:bg-gray-800")}>
+                    <User size={20} />
+                  </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
@@ -202,12 +212,17 @@ const Navbar = () => {
             Car News
           </Link>
           
-          <Link to="/careers" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            Careers
-          </Link>
+          <div className="flex items-center gap-2 px-3 py-1.5">
+            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+              <Search size={18} />
+            </button>
+            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+              <Heart size={18} />
+            </button>
+            <button className={cn("p-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+              <User size={18} />
+            </button>
+          </div>
           
           <button className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-primary-foreground bg-primary hover:bg-primary/90" : "text-primary-foreground bg-primary hover:bg-primary/90")}>
             Sign Up
